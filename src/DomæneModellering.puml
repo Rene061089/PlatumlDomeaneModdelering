@@ -1,0 +1,29 @@
+@startuml
+
+
+object User
+object Goal
+object Admin
+object MonthlyLicense
+object YearLicense
+object Course
+object Certificate
+object Material
+object License
+
+
+Goal <|-down-User
+User <|-down-License
+User <|-left-Certificate
+Course <|-left-User
+
+
+License -down-|> MonthlyLicense
+License -down-|>  YearLicense
+
+Course <|-right- Material
+
+License <|-right- Admin
+Course <|-down- Admin
+
+@enduml
