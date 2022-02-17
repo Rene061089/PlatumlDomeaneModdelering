@@ -10,6 +10,8 @@ object Course
 object Certificate
 object Material
 object License
+object Curriculum
+object ListOfCourses
 
 
 Goal o-down-User
@@ -23,8 +25,8 @@ License <|-down-  YearLicense
 
 Course <|-right- Material
 
-License <|-right- Admin
-Course <|-down- Admin
-Material <|-down- Admin
+License -right- Admin
+Course -down- Admin
+Material -down- Admin
 
 @enduml
