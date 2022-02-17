@@ -1,6 +1,5 @@
 @startuml
 class User{
-String name
 }
 
 object Goal
@@ -13,14 +12,14 @@ object Material
 object License
 
 
-Goal <|-down-User
-User <|-down-License
-User <|-left-Certificate
-Course <|-left-User
+Goal o-down-User
+User -down-o License
+User -left-o Certificate
+Course o-left- User
 
 
-License -down-|> MonthlyLicense
-License -down-|>  YearLicense
+License <|-down- MonthlyLicense
+License <|-down-  YearLicense
 
 Course <|-right- Material
 
