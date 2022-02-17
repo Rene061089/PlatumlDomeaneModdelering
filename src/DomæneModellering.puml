@@ -25,5 +25,6 @@ Course <|-right- Material
 
 License <|-right- Admin
 Course <|-down- Admin
+Material <|-down- Admin
 
 @enduml
