@@ -1,7 +1,8 @@
 @startuml
+class User{
+String name
+}
 
-
-object User
 object Goal
 object Admin
 object MonthlyLicense
