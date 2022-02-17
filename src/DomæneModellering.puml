@@ -2,7 +2,7 @@
 class User{
 }
 
-object Goal
+
 object Admin
 object MonthlyLicense
 object YearLicense
@@ -14,7 +14,7 @@ object Curriculum
 object ListOfCourses
 
 
-Goal o-down-User
+ListOfCourses o-down-User
 User -down-o License
 User -left-o Certificate
 Course o-left- User
@@ -26,7 +26,8 @@ License <|-down-  YearLicense
 Course <|-right- Material
 
 License -right- Admin
-Course -down- Admin
-Material -down- Admin
+Curriculum o-down- Admin
+Material -down-o Curriculum
+Course -down-o Curriculum
 
 @enduml
