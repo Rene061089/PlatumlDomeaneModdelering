@@ -1,0 +1,15 @@
+@startuml
+
+actor Customer
+usecase (Free Courses)
+usecase (Paid Courses)
+usecase (Full Courses)
+usecase (Choose a Licence)
+
+
+:Customer: -right- (Choose a Licence)
+(Choose a Licence) -up-> (Free Courses) #line.dashed : <<invokes>>
+(Choose a Licence) -right-> (Paid Courses) #line.dashed : <<invokes>>
+(Choose a Licence) -down->  (Full Courses) #line.dashed : <<invokes>>
+
+@enduml
