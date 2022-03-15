@@ -2,10 +2,10 @@
 class User{
 }
 
-object signUpModule
+object Login
 object Admin
-object MonthlyLicense
-object YearLicense
+object Single_Course_Licence
+object Full_Course_Licence
 object Course
 object Certificate
 object Material
@@ -20,13 +20,14 @@ User -left-o Certificate
 Course o-left- User
 
 
-License <|-down- MonthlyLicense
-License <|-down-  YearLicense
+License <|-down- Single_Course_Licence
+License <|-down-  Full_Course_Licence
 
 Course <|-right- Material
 
 License -right- Admin
-Curriculum o-down- Admin
+Certificate -right- Admin
+Curriculum -down- Admin
 Material -down-o Curriculum
 Course -down-o Curriculum
 
