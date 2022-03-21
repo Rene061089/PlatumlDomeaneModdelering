@@ -1,5 +1,5 @@
 @startuml
-class User{
+class Customer{
 }
 
 object Login
@@ -12,12 +12,15 @@ object Material
 object License
 object Curriculum
 object ListOfCourses
+object Goal
+object CustomerCourses
 
-
-ListOfCourses o-down-User
-User -down-o License
-User -left-o Certificate
-Course o-left- User
+CustomerCourses -down-o Customer
+CustomerCourses o-left- Goal
+ListOfCourses -down-o Course
+Customer o-down- License
+Customer o-left- Certificate
+Course -left-o Customer
 
 
 License <|-down- Single_Course_Licence
@@ -28,7 +31,7 @@ Course <|-right- Material
 License -right- Admin
 Certificate -right- Admin
 Curriculum -down- Admin
-Material -down-o Curriculum
-Course -down-o Curriculum
+Material o-down- Curriculum
+Course o-down- Curriculum
 
 @enduml
