@@ -2,15 +2,41 @@
 
 
 object Login
-object Admin
-object Single_Course_Licence
-object Full_Course_Licence
-object Certificate
 object Curriculum
-object ListOfCourses
 object CustomerCourses
 
+class Admin {
+-Id: int
+-email: String
+-password: String
+
+}
+
+class CourseLinkCustomer {
+-customerId: int
+-courseId: int
+}
+
+class CertificateLinkCustomer {
+-customerId: int
+-certificateId: int
+}
+
+
+class LicenseLinkCustomer {
+-customerId: int
+-licenseId: int
+}
+
+class Certificate{
+-id: int
+-name String
+-Date date
+- approvelStamp String
+}
+
 class License{
+- id: int
 -singleCourseLicence: int
 -fullCourseLicence: int
 }
@@ -36,10 +62,10 @@ class Goal{
 
 class Customer{
 -id: int
--role: String
 -email: String
+-password: String
 -courses: List<>
--license: int
+-license: List<>
 -goal: Goal
 -certificate: String
 }
@@ -53,23 +79,24 @@ class facade{
 }
 
 
-CustomerCourses -down-o Customer
-CustomerCourses o-left- Goal
-ListOfCourses -down-o Course
-Customer o-down- License
-Customer o-left- Certificate
-Course -left-o Customer
+CustomerCourses -down- Customer
+CustomerCourses -left- Goal
+Customer "1" -- "*" LicenseLinkCustomer
+License "1" - "*" LicenseLinkCustomer
+Customer "1" -left- "*" CertificateLinkCustomer
+CertificateLinkCustomer "*" -left- "1" Certificate
+Course "1" -left- "*" CourseLinkCustomer
+Customer "1" -- "*" CourseLinkCustomer
 
 
-License <|-down- Single_Course_Licence
-License <|-down-  Full_Course_Licence
 
-Course <|-right- Material
+
+Course "1" -right- "1" Material
 
 License -right- Admin
 Certificate -right- Admin
 Curriculum -down- Admin
-Material o-down- Curriculum
-Course o-down- Curriculum
+Material -down- Curriculum
+Course  -down-  Curriculum
 
 @enduml
