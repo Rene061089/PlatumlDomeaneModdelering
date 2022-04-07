@@ -6,7 +6,6 @@ object Admin
 object Single_Course_Licence
 object Full_Course_Licence
 object Certificate
-
 object Curriculum
 object ListOfCourses
 object CustomerCourses
@@ -19,7 +18,7 @@ class License{
 class Material{
 -id: int
 -name: String
--curriculum: String
+-desc: String
 -courses: List<>
 }
 
@@ -49,6 +48,8 @@ class facade{
 + List<> setGoal(Goal goal)
 + List<> showAllCourses(List<Coruses> corusesList)
 + List<> showAllCoursesById(List<Coruses> corusesList)
++ int setLicenseToCustomer(License licence)
++ List setCoursesOnCustomer(Course course)
 }
 
 
