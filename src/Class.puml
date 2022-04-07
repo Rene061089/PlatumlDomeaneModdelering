@@ -1,0 +1,74 @@
+@startuml
+
+
+object Login
+object Admin
+object Single_Course_Licence
+object Full_Course_Licence
+object Certificate
+
+object Curriculum
+object ListOfCourses
+object CustomerCourses
+
+class License{
+-singleCourseLicence: int
+-fullCourseLicence: int
+}
+
+class Material{
+-id: int
+-name: String
+-curriculum: String
+-courses: List<>
+}
+
+class Course{
+-id: int
+-name: String
+-curriculum: String
+-material: Material
+}
+
+class Goal{
+-answersWrong: int
+-finishDate: String
+}
+
+class Customer{
+-id: int
+-role: String
+-email: String
+-courses: List<>
+-license: int
+-goal: Goal
+-certificate: String
+}
+
+class facade{
++ List<> setGoal(Goal goal)
++ List<> showAllCourses(List<Coruses> corusesList)
++ List<> showAllCoursesById(List<Coruses> corusesList)
+}
+
+
+CustomerCourses -down-o Customer
+CustomerCourses o-left- Goal
+ListOfCourses -down-o Course
+Customer o-down- License
+Customer o-left- Certificate
+Course -left-o Customer
+
+
+License <|-down- Single_Course_Licence
+License <|-down-  Full_Course_Licence
+
+Course <|-right- Material
+
+License -right- Admin
+Certificate -right- Admin
+Curriculum -down- Admin
+Material o-down- Curriculum
+Course o-down- Curriculum
+
+@enduml
