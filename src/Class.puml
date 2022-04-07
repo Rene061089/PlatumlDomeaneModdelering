@@ -1,7 +1,7 @@
 @startuml
 
 
-object Login
+
 object Curriculum
 object CustomerCourses
 
@@ -37,6 +37,8 @@ class Certificate{
 
 class License{
 - id: int
+- startDate: Date
+- endDate: Date
 -singleCourseLicence: int
 -fullCourseLicence: int
 }
@@ -68,14 +70,21 @@ class Customer{
 -license: List<>
 -goal: Goal
 -certificate: String
+
 }
 
 class facade{
 + List<> setGoal(Goal goal)
-+ List<> showAllCourses(List<Coruses> corusesList)
-+ List<> showAllCoursesById(List<Coruses> corusesList)
++ List <> showMyGoals (List <Goals> MyGoalsList>)
++ String showGoalsByCourse (Goal goal))
++ List<> showAllCourses(List<Courses> coursesList)
++ List<> showAllCoursesByName(List<Courses> coursesList)
 + int setLicenseToCustomer(License licence)
 + List setCoursesOnCustomer(Course course)
++ List<> showAllLicense(List<License> licenseList)
++ List<> showMyLicenses (List<License> MylicenseList))
++ List<> showMyCourses (List<Courses> MyCoursesList))
++ List<> showMyCertificates (List<Certificate> MyCertificateList))
 }
 
 
@@ -92,7 +101,6 @@ Customer "1" -- "*" CourseLinkCustomer
 
 
 Course "1" -right- "1" Material
-
 License -right- Admin
 Certificate -right- Admin
 Curriculum -down- Admin
