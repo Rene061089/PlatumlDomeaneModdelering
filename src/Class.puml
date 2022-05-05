@@ -69,11 +69,11 @@ class Customer{
 -courses: List<>
 -license: List<>
 -goal: Goal
--certificate: String
+-certificate: Certificate
 
 }
 
-class facade{
+class CustomerFacade{
 + List<> setGoal(Goal goal)
 + List <> showMyGoals (List <Goals> MyGoalsList>)
 + String showGoalsByCourse (Goal goal))
